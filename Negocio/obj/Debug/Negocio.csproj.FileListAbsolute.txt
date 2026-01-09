@@ -1,0 +1,9 @@
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\bin\Debug\Negocio.dll
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\bin\Debug\Negocio.pdb
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\bin\Debug\Dominio.dll
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\bin\Debug\Dominio.pdb
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\obj\Debug\Negocio.csproj.Up2Date
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\obj\Debug\Negocio.dll
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Negocio\obj\Debug\Negocio.pdb

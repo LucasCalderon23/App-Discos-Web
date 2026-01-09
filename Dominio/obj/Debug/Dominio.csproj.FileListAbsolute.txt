@@ -1,0 +1,6 @@
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Dominio\bin\Debug\Dominio.dll
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Dominio\bin\Debug\Dominio.pdb
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Dominio\obj\Debug\Dominio.dll
+C:\Users\lucas\OneDrive\Desktop\Lucas\Programacion-20250925T145634Z-1-001\Programacion\App-Discos\Dominio\obj\Debug\Dominio.pdb

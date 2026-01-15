@@ -29,6 +29,12 @@ namespace Negocio
             command.CommandText = query;
         }
 
+        public void setProcedure(string sp)
+        {
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.CommandText = sp;
+        }
+
         public void setParameters(string nombre, object numero)
         {
             command.Parameters.AddWithValue(nombre, numero);

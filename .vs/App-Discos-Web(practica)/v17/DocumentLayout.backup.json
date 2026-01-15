@@ -1,12 +1,122 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|c:\\users\\lucas\\onedrive\\desktop\\cursonvl3\\app-discos-web(practica)\\discos-web\\formulariodisco.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|solutionrelative:discos-web\\formulariodisco.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ED51265-BF82-4A71-A112-314712963848}|Negocio\\Negocio.csproj|c:\\users\\lucas\\onedrive\\desktop\\cursonvl3\\app-discos-web(practica)\\negocio\\discosnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ED51265-BF82-4A71-A112-314712963848}|Negocio\\Negocio.csproj|solutionrelative:negocio\\discosnegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|c:\\users\\lucas\\onedrive\\desktop\\cursonvl3\\app-discos-web(practica)\\discos-web\\formulariodisco.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|solutionrelative:discos-web\\formulariodisco.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|c:\\users\\lucas\\onedrive\\desktop\\cursonvl3\\app-discos-web(practica)\\discos-web\\listadiscos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|solutionrelative:discos-web\\listadiscos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|c:\\users\\lucas\\onedrive\\desktop\\cursonvl3\\app-discos-web(practica)\\discos-web\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|solutionrelative:discos-web\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|c:\\users\\lucas\\onedrive\\desktop\\cursonvl3\\app-discos-web(practica)\\discos-web\\listadiscos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{983E1E80-B2CB-4A47-9A96-75098A712B2A}|Discos-Web\\Discos-Web.csproj|solutionrelative:discos-web\\listadiscos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DiscosNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Negocio\\DiscosNegocio.cs",
+              "RelativeDocumentMoniker": "Negocio\\DiscosNegocio.cs",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Negocio\\DiscosNegocio.cs",
+              "RelativeToolTip": "Negocio\\DiscosNegocio.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwH4AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T02:44:53.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\Default.aspx",
+              "RelativeDocumentMoniker": "Discos-Web\\Default.aspx",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\Default.aspx",
+              "RelativeToolTip": "Discos-Web\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-01-15T02:20:13.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormularioDisco.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\FormularioDisco.aspx.cs",
+              "RelativeDocumentMoniker": "Discos-Web\\FormularioDisco.aspx.cs",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\FormularioDisco.aspx.cs",
+              "RelativeToolTip": "Discos-Web\\FormularioDisco.aspx.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T02:10:40.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormularioDisco.aspx",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\FormularioDisco.aspx",
+              "RelativeDocumentMoniker": "Discos-Web\\FormularioDisco.aspx",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\FormularioDisco.aspx",
+              "RelativeToolTip": "Discos-Web\\FormularioDisco.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-01-14T22:35:29.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ListaDiscos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\ListaDiscos.aspx.cs",
+              "RelativeDocumentMoniker": "Discos-Web\\ListaDiscos.aspx.cs",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\ListaDiscos.aspx.cs",
+              "RelativeToolTip": "Discos-Web\\ListaDiscos.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T22:39:17.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ListaDiscos.aspx",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\ListaDiscos.aspx",
+              "RelativeDocumentMoniker": "Discos-Web\\ListaDiscos.aspx",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Desktop\\CursoNvl3\\App-Discos-Web(practica)\\Discos-Web\\ListaDiscos.aspx",
+              "RelativeToolTip": "Discos-Web\\ListaDiscos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-01-14T22:33:40.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

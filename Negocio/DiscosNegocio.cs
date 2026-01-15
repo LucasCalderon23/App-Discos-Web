@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,7 +31,7 @@ namespace Negocio
                 reader = comando.ExecuteReader(); //Ejecuta los comandos que pedimos a la DB linea por linea
 
                 while (reader.Read())// Este bucle se ejecuta siempre y cuando tenga infromacion para leer
-                { 
+                {
                     Discos aux = new Discos();// creo una instancia de un Disco y abajo le voy cargando la infromacion correspondiente de la DB a ese disco vuelta por vuelta
                     aux.Id = (int)reader["Id"];
                     aux.Titulo = (string)reader["Titulo"];
@@ -56,13 +57,72 @@ namespace Negocio
                 throw ex;
             }
         }
+        public List<Discos> ListadoConSP()
+        {
+            List<Discos> lista = new List<Discos>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setProcedure("storedListar");
+                datos.exRead();
+                while (datos.Reader.Read())// Este bucle se ejecuta siempre y cuando tenga infromacion para leer
+                {
+                    Discos aux = new Discos();// creo una instancia de un Disco y abajo le voy cargando la infromacion correspondiente de la DB a ese disco vuelta por vuelta
+                    aux.Id = (int)datos.Reader["Id"];
+                    aux.Titulo = (string)datos.Reader["Titulo"];
+                    aux.Fecha_Lanzamiento = (DateTime)datos.Reader["FechaLanzamiento"];
+                    aux.Cant_Canciones = (int)datos.Reader["CantidadCanciones"];
+                    aux.UrlImagenTapa = (string)datos.Reader["UrlImagenTapa"];
+                    // Genero una instancia de estilos para poder mostrar la descripcion que contiene en la DB
+                    aux.Genero = new Estilos();
+                    aux.Genero.Id = (int)datos.Reader["IdEstilo"];
+                    aux.Genero.Descripcion = (string)datos.Reader["Genero"];
+                    aux.Edicion = new TipoEdicion();
+                    aux.Edicion.Id = (int)datos.Reader["IdTipoEdicion"];
+                    aux.Edicion.Descripcion = (string)datos.Reader["Edicion"];
+
+                    lista.Add(aux);// Agrego el disco armado a la lista creada en la linea 14...
+                }
+
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public void Add(Discos nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setQuery("insert into DISCOS(Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa, IdEstilo, IdTipoEdicion)values('" + nuevo.Titulo +"', '"+ nuevo.Fecha_Lanzamiento.ToString("yyyy-MM-dd") +"', "+ nuevo.Cant_Canciones +", '"+ nuevo.UrlImagenTapa +"', @IdEstilo, @IdTipoEdicion)");
+                datos.setQuery("insert into DISCOS(Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa, IdEstilo, IdTipoEdicion)values('" + nuevo.Titulo + "', '" + nuevo.Fecha_Lanzamiento.ToString("yyyy-MM-dd") + "', " + nuevo.Cant_Canciones + ", '" + nuevo.UrlImagenTapa + "', @IdEstilo, @IdTipoEdicion)");
+                datos.setParameters("@IdEstilo", nuevo.Genero.Id);
+                datos.setParameters("@IdTipoEdicion", nuevo.Edicion.Id);
+                datos.exAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.closeConnection();
+            }
+        }
+
+        public void agregarSP(Discos nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setProcedure("storedAltaDisco");
+                datos.setParameters("@Titulo", nuevo.Titulo);
+                datos.setParameters("@FechaLanzamiento", nuevo.Fecha_Lanzamiento);
+                datos.setParameters("@CantidadCanciones", nuevo.Cant_Canciones);
+                datos.setParameters("@UrlImagenTapa", nuevo.UrlImagenTapa);
                 datos.setParameters("@IdEstilo", nuevo.Genero.Id);
                 datos.setParameters("@IdTipoEdicion", nuevo.Edicion.Id);
                 datos.exAccion();
@@ -142,7 +202,7 @@ namespace Negocio
             try
             {
                 string consulta = "select d.Id,Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa,e.Descripcion Genero, t.Descripcion Edicion, d.IdEstilo, d.IdTipoEdicion from DISCOS d, ESTILOS e, TIPOSEDICION t where d.IdEstilo = e.Id and d.IdTipoEdicion = t.Id and d.Activo = 1 and";
-                if(campo == "Id")
+                if (campo == "Id")
                 {
                     switch (criterio)
                     {
@@ -156,12 +216,13 @@ namespace Negocio
                             consulta += " d.Id = " + filtro;
                             break;
                     }
-                }else if (campo == "Titulo")
+                }
+                else if (campo == "Titulo")
                 {
                     switch (criterio)
                     {
                         case "Comienza con":
-                            consulta += " Titulo like '" + filtro +"%' ";
+                            consulta += " Titulo like '" + filtro + "%' ";
                             break;
                         case "Termina con":
                             consulta += " Titulo like '%" + filtro + "' ";
@@ -186,7 +247,7 @@ namespace Negocio
                             break;
                     }
                 }
-                
+
                 datos.setQuery(consulta);
                 datos.exRead();
                 while (datos.Reader.Read())// Este bucle se ejecuta siempre y cuando tenga infromacion para leer

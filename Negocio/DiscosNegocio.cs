@@ -14,7 +14,7 @@ namespace Negocio
 {
     public class DiscosNegocio
     {
-        public List<Discos> Listado()
+        public List<Discos> Listado(string id = "")
         {
             List<Discos> lista = new List<Discos>();
             SqlConnection connection = new SqlConnection(); //Objeto creado para la conexion a la DB
@@ -24,7 +24,9 @@ namespace Negocio
             {
                 connection.ConnectionString = "server=LUCAS\\SQLEXPRESS; database=DISCOS_DB; integrated security=true"; //atributo del sqlconnection donde indico a donde me voy a conectar
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select d.Id,Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa,e.Descripcion Genero, t.Descripcion Edicion, d.IdEstilo, d.IdTipoEdicion from DISCOS d, ESTILOS e, TIPOSEDICION t where d.IdEstilo = e.Id and d.IdTipoEdicion = t.Id and d.Activo = 1";
+                comando.CommandText = "select d.Id,Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa,e.Descripcion Genero, t.Descripcion Edicion, d.IdEstilo, d.IdTipoEdicion, d.Activo from DISCOS d, ESTILOS e, TIPOSEDICION t where d.IdEstilo = e.Id and d.IdTipoEdicion = t.Id ";
+                if (id != "")
+                    comando.CommandText += " and d.Id = " + id;
                 comando.Connection = connection;
 
                 connection.Open();
@@ -45,6 +47,7 @@ namespace Negocio
                     aux.Edicion = new TipoEdicion();
                     aux.Edicion.Id = (int)reader["IdTipoEdicion"];
                     aux.Edicion.Descripcion = (string)reader["Edicion"];
+                    aux.Activo = bool.Parse(reader["Activo"].ToString());
 
                     lista.Add(aux);// Agrego el disco armado a la lista creada en la linea 14...
                 }
@@ -80,6 +83,7 @@ namespace Negocio
                     aux.Edicion = new TipoEdicion();
                     aux.Edicion.Id = (int)datos.Reader["IdTipoEdicion"];
                     aux.Edicion.Descripcion = (string)datos.Reader["Edicion"];
+                    aux.Activo = bool.Parse(datos.Reader["Activo"].ToString());
 
                     lista.Add(aux);// Agrego el disco armado a la lista creada en la linea 14...
                 }
@@ -163,6 +167,32 @@ namespace Negocio
             }
         }
 
+        public void modificarConSP(Discos modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setProcedure("storedModificarDisco");
+                datos.setParameters("@titulo", modificar.Titulo);
+                datos.setParameters("@fechaLanzamiento", modificar.Fecha_Lanzamiento);
+                datos.setParameters("@cantidadCanciones", modificar.Cant_Canciones);
+                datos.setParameters("@urlImagenTapa", modificar.UrlImagenTapa);
+                datos.setParameters("@idEstilo", modificar.Genero.Id);
+                datos.setParameters("@idTipoEdicion", modificar.Edicion.Id);
+                datos.setParameters("@id", modificar.Id);
+
+                datos.exAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.closeConnection();
+            }
+        }
+
         public void delete(int id)
         {
             try
@@ -179,13 +209,14 @@ namespace Negocio
             }
         }
 
-        public void deleteLogico(int id)
+        public void deleteLogico(int id, bool activo = false)
         {
             try
             {
                 AccesoDatos datos = new AccesoDatos();
-                datos.setQuery("update DISCOS set Activo = 0 where Id = @Id");
+                datos.setQuery("update DISCOS set Activo = @activo where Id = @Id");
                 datos.setParameters("@Id", id);
+                datos.setParameters("@activo", activo);
                 datos.exAccion();
             }
             catch (Exception ex)
@@ -195,29 +226,14 @@ namespace Negocio
             }
         }
 
-        public List<Discos> Filtrar(string campo, string criterio, string filtro)
+        public List<Discos> Filtrar(string campo, string criterio, string filtro, string activo)
         {
             List<Discos> lista = new List<Discos>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select d.Id,Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa,e.Descripcion Genero, t.Descripcion Edicion, d.IdEstilo, d.IdTipoEdicion from DISCOS d, ESTILOS e, TIPOSEDICION t where d.IdEstilo = e.Id and d.IdTipoEdicion = t.Id and d.Activo = 1 and";
-                if (campo == "Id")
-                {
-                    switch (criterio)
-                    {
-                        case "Mayor a":
-                            consulta += " d.Id > " + filtro;
-                            break;
-                        case "Menor a":
-                            consulta += " d.Id < " + filtro;
-                            break;
-                        default:
-                            consulta += " d.Id = " + filtro;
-                            break;
-                    }
-                }
-                else if (campo == "Titulo")
+                string consulta = "select d.Id,Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa,e.Descripcion Genero, t.Descripcion Edicion, d.IdEstilo, d.IdTipoEdicion, d.Activo from DISCOS d, ESTILOS e, TIPOSEDICION t where d.IdEstilo = e.Id and d.IdTipoEdicion = t.Id and";
+                if (campo == "Titulo")
                 {
                     switch (criterio)
                     {
@@ -232,7 +248,7 @@ namespace Negocio
                             break;
                     }
                 }
-                else
+                else if (campo == "Genero")
                 {
                     switch (criterio)
                     {
@@ -247,8 +263,31 @@ namespace Negocio
                             break;
                     }
                 }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += " t.Descripcion like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += " t.Descripcion like '%" + filtro + "' ";
+                            break;
+                        default:
+                            consulta += " t.Descripcion like '%" + filtro + "%' ";
+                            break;
+                    }
+                }
 
-                datos.setQuery(consulta);
+                if(activo == "Activo")
+                {
+                    consulta += " and d.Activo = 1";
+                }else if (activo == "Inactivo")
+                {
+                    consulta += " and d.Activo = 0";
+                }
+
+                    datos.setQuery(consulta);
                 datos.exRead();
                 while (datos.Reader.Read())// Este bucle se ejecuta siempre y cuando tenga infromacion para leer
                 {
@@ -265,7 +304,7 @@ namespace Negocio
                     aux.Edicion = new TipoEdicion();
                     aux.Edicion.Id = (int)datos.Reader["IdTipoEdicion"];
                     aux.Edicion.Descripcion = (string)datos.Reader["Edicion"];
-
+                    aux.Activo = bool.Parse(datos.Reader["Activo"].ToString());
                     lista.Add(aux);// Agrego el disco armado a la lista creada en la linea 14...
                 }
 

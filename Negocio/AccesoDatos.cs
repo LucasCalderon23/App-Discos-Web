@@ -22,13 +22,13 @@ namespace Negocio
             this.connection = new SqlConnection("server=LUCAS\\SQLEXPRESS; database=DISCOS_DB; integrated security=true");
             command = new SqlCommand();
         }
-
+        // funcion para pasar la consulta SQL y realizar la accion que corresponda
         public void setQuery(string query)
         {
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText = query;
         }
-
+        // funcion para pasar un stored procedure con la consulta ya almacenada 
         public void setProcedure(string sp)
         {
             command.CommandType = System.Data.CommandType.StoredProcedure;

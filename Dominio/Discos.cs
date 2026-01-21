@@ -16,6 +16,7 @@ namespace Dominio
         public string UrlImagenTapa { get; set; }
         public Estilos Genero { get; set; }
         public TipoEdicion Edicion { get; set; }
+        public bool Activo { get; set; }
 
     }
 }

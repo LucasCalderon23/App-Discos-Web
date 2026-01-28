@@ -76,6 +76,21 @@ namespace Negocio
             }
         }
 
+        // metodo para ejecutar una accion desde la db y que me retorne un entero
+        public int ejecutarAccionScalar()
+        {
+            command.Connection = connection;
+            try
+            {
+                connection.Open();
+                return int.Parse(command.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
 

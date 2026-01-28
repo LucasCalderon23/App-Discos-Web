@@ -15,6 +15,13 @@ namespace Discos_Web
         //cargamos la lista 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Evaluo el metodo de la clase seguridad para saber si es admin y poder ingresar a la lista de discos
+            if (!Seguridad.esAdmin(Session["UserActivo"]))
+            {
+                Session.Add("Error", "Se requieren permisos para esta seccion...");
+                Response.Redirect("Error.aspx", false);
+            }
+
             FiltroAvanzado = chkFiltro.Checked;
             if(!IsPostBack)
             {

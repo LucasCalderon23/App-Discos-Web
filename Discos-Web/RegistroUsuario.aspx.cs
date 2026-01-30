@@ -27,7 +27,8 @@ namespace Discos_Web
 
                 user.Email = txtEmail.Text;
                 user.Password = txtPass.Text;
-                int id = userNegocio.insertarUser(user);
+                user.Id = userNegocio.insertarUser(user);
+                Session.Add("UserActivo", user);
 
                 // corregir el envio de emails...
 

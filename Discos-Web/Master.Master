@@ -36,6 +36,9 @@
                           else
                           { %>
                            <asp:Button ID="btnMiPerfil" runat="server" Text="Mi Perfil" CssClass="btn btn-outline-light" OnClick="btnMiPerfil_Click"/>
+                            <asp:Label ID="lblUser" runat="server" />
+                            <asp:Image ID="imgAvatar" style="height:40px; width:40px; border-radius:50%;" 
+                                runat="server" />
                         <%} %>
                     </div>
                 </div>
